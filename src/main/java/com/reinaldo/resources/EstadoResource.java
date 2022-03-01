@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reinaldo.domain.Pedido;
-import com.reinaldo.services.PedidoService;
+import com.reinaldo.domain.Estado;
+import com.reinaldo.services.EstadoService;
 
 @RestController
-@RequestMapping("/pedidos")
-public class PedidoResource {
+@RequestMapping("/estados")
+public class EstadoResource {
 
 	@Autowired
-	private PedidoService pedidoService;
+	private EstadoService estadoService;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> listar(@PathVariable Integer id){
-		Pedido obj = pedidoService.listar(id);
-		return ResponseEntity.ok().body(obj);
+	public ResponseEntity<Estado> buscar(@PathVariable Integer id){
+		Estado obj = estadoService.buscar(id);
+		return ResponseEntity.ok(obj);
 	}
 }
